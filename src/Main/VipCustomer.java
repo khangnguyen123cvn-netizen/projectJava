@@ -8,20 +8,21 @@ public class VipCustomer
      private String phone;
      private String email;  
      private double discountRate;
+     private int isDelete;
 
    public void vipcustomer()
    {
-       System.out.printf("\n----|%-5s|%-5s|%-5s|%-5s|%-5s|----\n", customerId, name, phone, email, discountRate);
+       System.out.printf("\n----|%-5s|%-5s|%-5s|%-5s|%-5s|%-5d|----\n", customerId, name, phone, email, discountRate, isDelete);
    }
 
-     public VipCustomer(String customerId, String name, String phone, String email, double discountRate) 
-    {
+    public VipCustomer(String customerId, String name, String phone, String email, double discountRate, int isDelete) {
         this.customerId = customerId;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.discountRate = discountRate;
-    } 
+        this.isDelete = isDelete;
+    }
 
     public String getCustomerId() {
         return customerId;
@@ -62,5 +63,15 @@ public class VipCustomer
     public void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }
+
+    public int getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
+    }
+
+     
      
 }

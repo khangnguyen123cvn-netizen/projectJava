@@ -5,50 +5,61 @@ public class Customer
      private String name;
      private String phone;
      private String email;
+     private int isDelete;
 
    public void customer()
    {
-       System.out.printf("\n----|%-5s|%-5s|%-5s|%-5s|----\n", customerId, name, phone, email);
+       System.out.printf("\n----|%-5s|%-5s|%-5s|%-5s|%-6d|----\n", customerId, name, phone, email, isDelete);
    }
 
-     public Customer(String customerId, String name, String phone, String email) 
-    {
+    public Customer(String customerId, String name, String phone, String email, int isDelete) {
         this.customerId = customerId;
         this.name = name;
         this.phone = phone;
         this.email = email;
-    } 
-   
-    public String getCustomerId()
-     {
-         return customerId;
-     }
-    public void setCustomerId(String customerId)
-    {
+        this.isDelete = isDelete;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
-    public String getname()
-     {
-         return name;
-     }
-    public void setname(String name)
-    {
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
-    public String getphone()
-     {
-         return phone;
-     }
-    public void setphone(String phone)
-    {
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
         this.phone = phone;
     }
-    public String getemail()
-     {
-         return email;
-     }
-    public void setemail(String email)
-    {
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
         this.email = email;
     }
+
+    public int getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
+    }
+
+     
+    
 }
