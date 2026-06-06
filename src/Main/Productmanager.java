@@ -1,10 +1,11 @@
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
 import java.util.ArrayList;
-public class Customermanager extends Abstract 
+public class Productmanager extends Abstract 
 {
      Scanner sc = new Scanner(System.in);
 
@@ -15,21 +16,21 @@ public class Customermanager extends Abstract
     public void add() 
     {
         
-        System.out.print("Id: ");
+        System.out.print("Product Id: ");
         String id = sc.nextLine(); 
-        System.out.print("Name: ");
+        System.out.print("Product Name: ");
         String name = sc.nextLine();
-        System.out.print("phone: ");
-        String phone = sc.nextLine();
-        System.out.print("gmail: ");
-        String mail = sc.nextLine();
-        System.out.print("delete: ");
-        int isDelete = sc.nextInt();
+        System.out.print("Category: ");
+        String category = sc.nextLine();
+        System.out.print("Price: ");
+        double price = sc.nextDouble();
+        System.out.print("Quantity In Stock: ");
+        int quantityInStock = sc.nextInt();
         sc.nextLine();
         try 
         {
-            FileWriter w = new FileWriter("data.text", true); 
-            w.write(String.format("%-10s|%-25s|%-15s|%-25s|%-7d|\n", id, name, phone, mail, isDelete));
+            FileWriter w = new FileWriter("product.text", true); 
+            w.write(String.format("%-10s|%-25s|%-15s|%-25.2f|%-8d|\n", id, name, category, price, quantityInStock));
             w.close();   
             System.out.println("Append success");
         } 
@@ -48,7 +49,7 @@ public class Customermanager extends Abstract
     boolean find = false;
 
     ArrayList<String> fileContent = new ArrayList<>();
-    try (BufferedReader r = new BufferedReader(new FileReader("data.text"))) {
+    try (BufferedReader r = new BufferedReader(new FileReader("product.text"))) {
         String line;
         
         while ((line = r.readLine()) != null) {
@@ -56,8 +57,8 @@ public class Customermanager extends Abstract
             if (data.length > 0 && data[0].trim().equals(searchId)) {
                 find = true;
                 
-                System.out.println("1.change phone");
-                System.out.println("2.change email");
+                System.out.println("1.change category");
+                System.out.println("2.change price");
                 System.out.print("choose your option: ");
                 
                 
@@ -65,14 +66,14 @@ public class Customermanager extends Abstract
                 
                 switch (choose) {
                     case 1:
-                        System.out.print("new Phone: ");
-                        String phone = sc.nextLine();
-                        data[2] = String.format("%-15s", phone);
+                        System.out.print("new Category: ");
+                        String category = sc.nextLine();
+                        data[2] = String.format("%-15s", category);
                         break; 
                     case 2:
-                        System.out.print("new Email: ");
-                        String email = sc.nextLine();
-                        data[3] = String.format("%-25s", email); 
+                        System.out.print("new Price: ");
+                        double price = Double.parseDouble(sc.nextLine());
+                        data[3] = String.format("%-25.2f", price); 
                         break;
                     default:
                         System.out.println("Invalid option!");
@@ -119,7 +120,7 @@ public class Customermanager extends Abstract
 
     ArrayList<String> fileContent = new ArrayList<>();
 
-    try (BufferedReader r = new BufferedReader(new FileReader("data.text"))) {
+    try (BufferedReader r = new BufferedReader(new FileReader("product.text"))) {
         String line;
         
         while ((line = r.readLine()) != null) {
@@ -166,7 +167,7 @@ public class Customermanager extends Abstract
     public void showInfor()
     {
         
-    try (BufferedReader r = new BufferedReader(new FileReader("data.text"))) {
+    try (BufferedReader r = new BufferedReader(new FileReader("product.text"))) {
         String line;
         while ((line = r.readLine()) != null) {
             System.out.println(line); 

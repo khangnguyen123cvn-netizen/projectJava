@@ -1,16 +1,13 @@
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
 import java.util.ArrayList;
-public class Customermanager extends Abstract 
+public class VipCustomermanager extends Abstract 
 {
      Scanner sc = new Scanner(System.in);
-
-     
-     
-     
     @Override
     public void add() 
     {
@@ -23,13 +20,15 @@ public class Customermanager extends Abstract
         String phone = sc.nextLine();
         System.out.print("gmail: ");
         String mail = sc.nextLine();
+        System.out.print("discount rate: ");
+        double discountRate = sc.nextDouble();
         System.out.print("delete: ");
         int isDelete = sc.nextInt();
         sc.nextLine();
         try 
         {
             FileWriter w = new FileWriter("data.text", true); 
-            w.write(String.format("%-10s|%-25s|%-15s|%-25s|%-7d|\n", id, name, phone, mail, isDelete));
+            w.write(String.format("%-10s|%-25s|%-15s|%-25s|%-7d|%-13.2f|\n", id, name, phone, mail, isDelete, discountRate));
             w.close();   
             System.out.println("Append success");
         } 
@@ -58,6 +57,7 @@ public class Customermanager extends Abstract
                 
                 System.out.println("1.change phone");
                 System.out.println("2.change email");
+                System.out.println("3.change discount rate");
                 System.out.print("choose your option: ");
                 
                 
@@ -73,6 +73,11 @@ public class Customermanager extends Abstract
                         System.out.print("new Email: ");
                         String email = sc.nextLine();
                         data[3] = String.format("%-25s", email); 
+                        break;
+                    case 3:
+                        System.out.print("new Discount Rate: ");
+                        double discountRate = Double.parseDouble(sc.nextLine());
+                        data[4] = String.format("%-10.2f", discountRate);
                         break;
                     default:
                         System.out.println("Invalid option!");
@@ -126,13 +131,13 @@ public class Customermanager extends Abstract
             if (line.trim().startsWith(searchId.trim())) {
                 find = true;
                 String[] parts = line.split("\\|");
-                String currentStatus = parts[4].trim();
+                String currentStatus = parts[5].trim();
                
                 if (currentStatus.equals("0")) {
-                    line = line.replace("|" + parts[4] + "|", "|" + parts[4].replace("0", "1") + "|");
+                    line = line.replace("|" + parts[5] + "|", "|" + parts[5].replace("0", "1") + "|");
                     System.out.println("Deleted successfully (Status changed to 1)!");
                 } else {
-                    line = line.replace("|" + parts[4] + "|", "|" + parts[4].replace("1", "0") + "|");
+                    line = line.replace("|" + parts[5] + "|", "|" + parts[5].replace("1", "0") + "|");
                     System.out.println("Restored successfully (Status changed to 0)!");
                 }
             }
