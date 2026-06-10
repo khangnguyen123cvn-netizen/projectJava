@@ -5,18 +5,16 @@ import java.util.ArrayList;
 
 //test manager: 
 
-//class Main
-//{
-//    public static void main(String[] args)
-//    {
-//        Productmanager nc = new Productmanager();
-//        nc.add();
-//         
-//    }
+class Main
+{
+    public static void main(String[] args)
+    {
+        VipCustomermanager nc = new VipCustomermanager();
+        nc.add();
+         
+    }
     
-//}
-
-//
+}
 
 
 // test transaction:
@@ -39,8 +37,6 @@ import java.util.ArrayList;
 //        System.out.println("\nThời gian của giao dịch thứ nhất là: " + t1.getTimestamp());
 //    }
 //}
-
-
 
 
 // test report:

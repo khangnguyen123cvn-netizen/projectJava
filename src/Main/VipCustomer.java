@@ -1,59 +1,13 @@
-package Main;
 
 
-public class VipCustomer 
+public class VipCustomer extends Customer
 {
-      private String customerId;
-     private String name;
-     private String phone;
-     private String email;  
+        
      private double discountRate;
-     private int isDelete;
 
-   public void vipcustomer()
-   {
-       System.out.printf("\n----|%-5s|%-5s|%-5s|%-5s|%-5s|%-5d|----\n", customerId, name, phone, email, discountRate, isDelete);
-   }
-
-    public VipCustomer(String customerId, String name, String phone, String email, double discountRate, int isDelete) {
-        this.customerId = customerId;
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
+    public VipCustomer(double discountRate, String customerId, String name, String phone, String email, int isDelete) {
+        super(customerId, name, phone, email, isDelete);
         this.discountRate = discountRate;
-        this.isDelete = isDelete;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public double getDiscountRate() {
@@ -63,15 +17,11 @@ public class VipCustomer
     public void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }
+  
 
-    public int getIsDelete() {
-        return isDelete;
-    }
+   
 
-    public void setIsDelete(int isDelete) {
-        this.isDelete = isDelete;
-    }
-
+ 
      
      
 }

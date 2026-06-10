@@ -1,11 +1,11 @@
 
 public class Customer 
 {    
-     private String customerId;
-     private String name;
-     private String phone;
-     private String email;
-     private int isDelete;
+     protected String customerId;
+     protected String name;
+     protected String phone;
+     protected String email;
+     protected int isDelete;
 
    public void customer()
    {
