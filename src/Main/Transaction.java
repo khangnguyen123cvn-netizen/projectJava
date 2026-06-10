@@ -1,5 +1,6 @@
 package Main;
 
+import java.io.FileWriter;
 import java.time.LocalDateTime;
 public class Transaction 
 {
@@ -35,4 +36,17 @@ public class Transaction
     {
         return quantity;
     }
+    public void saveTransaction(Transaction t)
+{
+    try(FileWriter fw = new FileWriter("Transaction.text", true))
+    {
+        fw.write(String.format(
+    "%-10s|%-25s|%-10d|%-20s%n",t.getProductId(),t.getName(),t.getQuantity(),t.getTimestamp()));
+    }
+    catch(Exception e)
+    {
+        System.out.println("Can't add transaction!!");
+    }
 }
+}
+
