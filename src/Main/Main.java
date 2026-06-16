@@ -1,3 +1,5 @@
+package Main;
+
 
 import Main.Report;
 import Main.Transaction;
@@ -7,17 +9,15 @@ import java.io.FileReader;
 import java.io.IOException;
 
 //test manager: 
-
-//class Main
-//{
-//    public static void main(String[] args)
-//    {
-//        VipCustomermanager nc = new VipCustomermanager();
-//        nc.add();
+class Main
+{
+    public static void main(String[] args)
+    {
+       VipCustomermanager nc = new VipCustomermanager();
+        nc.add();
          
-//    }
-    
-//}
+ }
+}
 
 
 // test transaction:
