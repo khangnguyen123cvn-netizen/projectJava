@@ -59,8 +59,8 @@ public class Productmanager extends Abstract
                 
                 System.out.println("1.change category");
                 System.out.println("2.change price");
+                System.out.println("3.add stock "); 
                 System.out.print("choose your option: ");
-                
                 
                 int choose = Integer.parseInt(sc.nextLine()); 
                 
@@ -75,6 +75,14 @@ public class Productmanager extends Abstract
                         double price = Double.parseDouble(sc.nextLine());
                         data[3] = String.format("%-25.2f", price); 
                         break;
+                    case 3:
+                        System.out.print("Enter quantity to add: ");
+                        int addedQty = Integer.parseInt(sc.nextLine());
+                        int oldQty = Integer.parseInt(data[4].trim()); 
+                        int newQty = oldQty + addedQty; 
+                        data[4] = String.format("%-8d", newQty); 
+                        System.out.println("Stock updated successfully! New stock: " + newQty);
+                        break;
                     default:
                         System.out.println("Invalid option!");
                         break;
@@ -83,7 +91,6 @@ public class Productmanager extends Abstract
                 line = String.join("|", data);  
             }
             
-           
             fileContent.add(line); 
         }
         
@@ -99,7 +106,8 @@ public class Productmanager extends Abstract
         System.out.println("Please enter a valid number!");
         return;
     }
-    try (FileWriter w = new FileWriter("data.text", false)) { 
+    
+    try (FileWriter w = new FileWriter("product.text", false)) { 
         for (String updatedLine : fileContent) {
             w.write(updatedLine + "\n");
         }
@@ -108,7 +116,6 @@ public class Productmanager extends Abstract
         System.out.println("Error writing file!");
     }
 }
-
     
     
     @Override
