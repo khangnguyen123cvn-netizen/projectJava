@@ -15,27 +15,57 @@ public class Productmanager extends Abstract
     @Override
     public void add() 
     {
-        
-        System.out.print("Product Id: ");
-        String id = sc.nextLine(); 
-        System.out.print("Product Name: ");
-        String name = sc.nextLine();
-        System.out.print("Category: ");
-        String category = sc.nextLine();
-        System.out.print("Price: ");
-        double price = sc.nextDouble();
+        String id = "", name = " ", category = " ";
+        double price = 0.0;
+
+        while (true) {
+            System.out.print("Id: ");
+            id = sc.nextLine();
+            if (id != null) {
+                break;
+            } else {
+                System.out.println("Input cannot be void!!");
+            }
+        }
+
+        while (true) {
+            System.out.print("Name: ");
+            name = sc.nextLine();
+            if (name != null) {
+                break;
+            } else {
+                System.out.println("Input cannot be void!!");
+            }
+        }
+
+        while (true) {
+            System.out.print("Category: ");
+            category = sc.nextLine();
+            if (category != null) {
+                break;
+            } else {
+                System.out.println("Input cannot be void!!");
+            }
+        }
+
+        while (true) {
+            System.out.print("Price: ");
+            price = sc.nextDouble();
+            if (price > 0) {
+                break;
+            } else {
+                System.out.println("Invalid input!");
+            }
+        }
         System.out.print("Quantity In Stock: ");
         int quantityInStock = sc.nextInt();
         sc.nextLine();
-        try 
-        {
-            FileWriter w = new FileWriter("product.text", true); 
+        try {
+            FileWriter w = new FileWriter("product.text", true);
             w.write(String.format("%-10s|%-25s|%-15s|%-25.2f|%-8d|\n", id, name, category, price, quantityInStock));
-            w.close();   
+            w.close();
             System.out.println("Append success");
-        } 
-        catch (IOException e) 
-        {
+        } catch (IOException e) {
             System.out.println("Error!Access is denied");
         }
     }
@@ -66,22 +96,42 @@ public class Productmanager extends Abstract
                 
                 switch (choose) {
                     case 1:
+                        while(true){
                         System.out.print("new Category: ");
                         String category = sc.nextLine();
+                        if(category != null){
                         data[2] = String.format("%-15s", category);
+                        break;
+                        } else {
+                            System.out.println("Input required!!");
+                        }
+                        }
                         break; 
                     case 2:
+                        while(true){
                         System.out.print("new Price: ");
                         double price = Double.parseDouble(sc.nextLine());
+                        if(price > 0.0){
                         data[3] = String.format("%-25.2f", price); 
                         break;
+                        } else {
+                            System.out.println("Invalid pricing!!");
+                        }
+                        }
+                        break;
                     case 3:
+                        while(true){
+                            int newQty = -1;
                         System.out.print("Enter quantity to add: ");
                         int addedQty = Integer.parseInt(sc.nextLine());
+                        if(addedQty>0.0){
                         int oldQty = Integer.parseInt(data[4].trim()); 
-                        int newQty = oldQty + addedQty; 
+                        newQty = oldQty + addedQty; 
+                        }
                         data[4] = String.format("%-8d", newQty); 
                         System.out.println("Stock updated successfully! New stock: " + newQty);
+                        break;
+                        }
                         break;
                     default:
                         System.out.println("Invalid option!");
@@ -121,8 +171,16 @@ public class Productmanager extends Abstract
     @Override
     public void delete() 
     {
+        String searchId= "";
+        while(true){
    System.out.print("chooseId: ");
-    String searchId = sc.nextLine();
+    searchId = sc.nextLine();
+    if(searchId != null){
+        break;
+    } else {
+        System.out.println("Input required!!");
+    }
+        }
     boolean find = false;
 
     ArrayList<String> fileContent = new ArrayList<>();
