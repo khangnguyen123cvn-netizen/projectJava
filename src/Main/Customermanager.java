@@ -1,3 +1,4 @@
+package Main;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,7 +13,7 @@ public class Customermanager extends Abstract {
 
     Scanner sc = new Scanner(System.in);
 
-    private static final String EMAIL_REGEX = "^[A-ZA-Z0-9_+&*-]+\\._EMAIL_REGEX[]A-Za-z0-9_+&*-]+)*@" + "(?:[A-Za-z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9_+&*-]+(?:\\.[A-Za-z0-9_+&*-]+)*@" + "(?:[A-Za-z0-9-]+\\.)+[a-zA-Z]{2,7}$";
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
 
     public static boolean emailValidate(String email) {
@@ -85,8 +86,16 @@ public class Customermanager extends Abstract {
 
     @Override
     public void update() {
-        System.out.print("chooseId: ");
-        String searchId = sc.nextLine().trim();
+        String searchId = "";
+        while (true) {
+            System.out.print("chooseId: ");
+            searchId = sc.nextLine();
+            if (searchId != null) {
+                break;
+            } else {
+                System.out.println("Invalid input");
+            }
+        }
         boolean find = false;
 
         ArrayList<String> fileContent = new ArrayList<>();
@@ -116,6 +125,8 @@ public class Customermanager extends Abstract {
                                     } else {
                                         break;
                                     }
+                                } else {
+                                    System.out.println("Invalid phone number!!");
                                 }
                             }
                             data[2] = String.format("%-15s", phone);
@@ -125,12 +136,14 @@ public class Customermanager extends Abstract {
                             while (true) {
                                 System.out.print("new Email: ");
                                 email = sc.nextLine();
-                                if(emailValidate(email)!=false){
-                                    if(data[3].equalsIgnoreCase(email)){
+                                if (emailValidate(email) != false) {
+                                    if (data[3].equalsIgnoreCase(email)) {
                                         System.out.println("New email cannot be same as old!!");
                                     } else {
                                         break;
                                     }
+                                } else {
+                                    System.out.println("Invalid email, please enter again");
                                 }
                             }
                             data[3] = String.format("%-25s", email);
@@ -171,12 +184,14 @@ public class Customermanager extends Abstract {
     @Override
     public void delete() {
         String searchId = "";
-        while(true){
-        System.out.print("chooseId: ");
-        searchId = sc.nextLine();
-        if (searchId != null){
-            break;
-        }
+        while (true) {
+            System.out.print("chooseId: ");
+            searchId = sc.nextLine();
+            if (searchId != null) {
+                break;
+            } else {
+                System.out.println("Invalid input");
+            }
         }
         boolean find = false;
 
@@ -237,12 +252,14 @@ public class Customermanager extends Abstract {
     @Override
     public void search() {
         String searchId = "";
-        while(true){
-        System.out.print("chooseId: ");
-        searchId = sc.nextLine();
-        if (searchId != null){
-            break;
-        }
+        while (true) {
+            System.out.print("chooseId: ");
+            searchId = sc.nextLine();
+            if (searchId != null) {
+                break;
+            } else {
+                System.out.println("Invalid input");
+            }
         }
         boolean find = false;
         String search = searchId.trim() + "|";

@@ -1,3 +1,4 @@
+package Main;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 public class VipCustomermanager extends Abstract {
 
     Scanner sc = new Scanner(System.in);
-    private static final String EMAIL_REGEX = "^[A-ZA-Z0-9_+&*-]+\\._EMAIL_REGEX[]A-Za-z0-9_+&*-]+)*@" + "(?:[A-Za-z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9_+&*-]+(?:\\.[A-Za-z0-9_+&*-]+)*@" + "(?:[A-Za-z0-9-]+\\.)+[a-zA-Z]{2,7}$";
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
 
     public static boolean emailValidate(String gmail) {
@@ -90,8 +91,16 @@ public class VipCustomermanager extends Abstract {
 
     @Override
     public void update() {
-        System.out.print("chooseId: ");
-        String searchId = sc.nextLine().trim();
+        String searchId = "";
+        while (true) {
+            System.out.print("chooseId: ");
+            searchId = sc.nextLine().trim();
+            if (searchId != null) {
+                break;
+            } else {
+                System.out.println("Invalid input");
+            }
+        }
         boolean find = false;
 
         ArrayList<String> fileContent = new ArrayList<>();
@@ -182,12 +191,14 @@ public class VipCustomermanager extends Abstract {
     @Override
     public void delete() {
         String searchId = "";
-        while(true){
-        System.out.print("chooseId: ");
-        searchId = sc.nextLine();
-        if (searchId != null){
-            break;
-        }
+        while (true) {
+            System.out.print("chooseId: ");
+            searchId = sc.nextLine();
+            if (searchId != null) {
+                break;
+            } else {
+                System.out.println("Invalid input");
+            }
         }
         boolean find = false;
 
@@ -248,12 +259,14 @@ public class VipCustomermanager extends Abstract {
     @Override
     public void search() {
         String searchId = "";
-        while(true){
-        System.out.print("chooseId: ");
-        searchId = sc.nextLine();
-        if (searchId != null){
-            break;
-        }
+        while (true) {
+            System.out.print("chooseId: ");
+            searchId = sc.nextLine();
+            if (searchId != null) {
+                break;
+            } else {
+                System.out.println("Invalid input");
+            }
         }
         boolean find = false;
         String search = searchId.trim() + "|";

@@ -1,4 +1,4 @@
-
+package Main;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -74,8 +74,16 @@ public class Productmanager extends Abstract
     
     @Override
     public void update() {
-    System.out.print("chooseId: ");
-    String searchId = sc.nextLine().trim();
+    String searchId = "";
+        while (true) {
+            System.out.print("chooseId: ");
+            searchId = sc.nextLine().trim();
+            if (searchId != null) {
+                break;
+            } else {
+                System.out.println("Invalid input");
+            }
+        }
     boolean find = false;
 
     ArrayList<String> fileContent = new ArrayList<>();
@@ -250,8 +258,16 @@ public class Productmanager extends Abstract
     @Override
     public void search() 
   {
-    System.out.print("chooseId: ");
-    String searchId = sc.nextLine();
+    String searchId = "";
+        while (true) {
+            System.out.print("chooseId: ");
+            searchId = sc.nextLine();
+            if (searchId != null) {
+                break;
+            } else {
+                System.out.println("Invalid input");
+            }
+        }
     boolean find = false;
     String search = searchId.trim() + "|"; 
 
