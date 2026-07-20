@@ -23,6 +23,23 @@ public class Customermanager extends Abstract {
         Matcher matcher = EMAIL_PATTERN.matcher(email);
         return matcher.matches();
     }
+    private static boolean isIdExists(String id) {
+    try {
+        BufferedReader reader = new BufferedReader(new FileReader("data.text"));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split("\\|");
+            if (parts.length > 0 && parts[0].trim().equalsIgnoreCase(id)) {
+                reader.close();
+                return true;
+            }
+        }
+        reader.close();
+    } catch (Exception e) {
+        return false;
+    }
+    return false;
+}
 
     @Override
     public void add() {
@@ -32,7 +49,11 @@ public class Customermanager extends Abstract {
             System.out.print("Id: ");
             id = sc.nextLine();
             if (id != null) {
-                break;
+                if (isIdExists(id.trim())) {
+                    System.out.println("ID exist!");
+                } else {
+                    break;
+                }
             } else {
                 System.out.println("Input cannot be void!!");
             }

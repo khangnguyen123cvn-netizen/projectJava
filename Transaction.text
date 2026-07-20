@@ -3,3 +3,9 @@ ID         |Name                 |Product ID      |ProductName     |Quantity |Pr
 001        |Nguyen Duc Nhat Khang|001             |quan jean       |1        |100.00           |2026-06-24T14:50:53
 002        |Nguyen Van khanh     |002             |ao khoac        |1        |200.00           |2026-06-24T14:52:04
 001        |Nguyen Duc Nhat Khang|001             |quan jean       |2        |200.00           |2026-06-24T15:29:03
+004        |vo le kien huy       |003             |dao             |0        |40.00            |2026-06-24T15:30:09
+005        |vo thi hoa           |004             |keo             |0        |0.20             |2026-06-24T15:32:05
+006        |vo hoa le            |005             |bua             |0        |0.10             |2026-06-24T15:35:04
+007        |nguyen trung hieu    |008             |bao tay         |0        |0.10             |2026-06-24T15:36:03
+008        |nguyen kien          |007             |thit            |0        |0.20             |2026-06-24T15:37:06       
+005        |vo thi hoa           |001             |quan jean       |2        |200.00           |2026-07-20T18:20:56

@@ -5,7 +5,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
@@ -15,8 +14,6 @@ public class Main {
         Customermanager customerManager = new Customermanager();
         VipCustomermanager vipCustomerManager = new VipCustomermanager();
         Productmanager productManager = new Productmanager();
-        Transaction transactionManager = new Transaction();
-        Report report = new Report();
 
         while (true) {
             System.out.println("\n--------------- MAIN MENU ---------------");

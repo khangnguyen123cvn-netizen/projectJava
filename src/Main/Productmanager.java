@@ -8,7 +8,23 @@ import java.util.ArrayList;
 public class Productmanager extends Abstract 
 {
      Scanner sc = new Scanner(System.in);
-
+private static boolean isIdExists(String id) {
+    try {
+        BufferedReader reader = new BufferedReader(new FileReader("data.text"));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split("\\|");
+            if (parts.length > 0 && parts[0].trim().equalsIgnoreCase(id)) {
+                reader.close();
+                return true;
+            }
+        }
+        reader.close();
+    } catch (Exception e) {
+        return false;
+    }
+    return false;
+}
      
      
      
@@ -22,7 +38,11 @@ public class Productmanager extends Abstract
             System.out.print("Id: ");
             id = sc.nextLine();
             if (id != null) {
-                break;
+                if (isIdExists(id.trim())) {
+                    System.out.println("ID Exist!");
+                } else {
+                    break;
+                }
             } else {
                 System.out.println("Input cannot be void!!");
             }

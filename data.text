@@ -3,4 +3,8 @@ ID        |Name                     |Phone          |Email                    |D
 001       |Nguyen Duc Nhat Khang    |1000000000     |khangnguyen123@gmail.com |0      |                 
 002       |Nguyen Van khanh         |0977543214     |vannguyen123@gmail.com   |0      | 
 003       |vo huy                   |0965438101     |huyvo123@gmail.com       |1      |0.20         |
-
+004       |vo le kien huy           |0900000004     |huyvo123@gmail.com       |0      |
+005       |vo thi hoa               |0900000005     |hoavo123@gmail.com       |0      |0.10         |          
+006       |vo hoa le                |0900000006     |levo123@gmail.com        |0      |
+007       |nguyen trung hieu        |0900000007     |hieunguyen123@gmail.com  |0      |
+008       |nguyen kien              |0900000008     |kiennguyen123@gmail.com  |0      |0.3          |
